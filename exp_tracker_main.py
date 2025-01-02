@@ -6,7 +6,7 @@ expenses = [];
 Expense = {
     "title":"",
     "cost":0.0,
-    "date":"",
+    "date": datetime,
     "desc":""
 }
 def add_new_expense():
@@ -16,4 +16,10 @@ def add_new_expense():
     Expense["date"]= datetime.datetime.now();
     expenses.append(Expense.copy());
 add_new_expense();
-print(expenses);
+
+
+def print_expenses():
+    for i in range(len(expenses)):
+        print(f"""Expense Title : {expenses[i]["title"]}   Dated : {str(expenses[i]["date"].date())}\n
+Cost : {expenses[i]["cost"]}\nExpense Description : {expenses[i]["desc"]}""")
+print_expenses();
