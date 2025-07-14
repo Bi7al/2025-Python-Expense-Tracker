@@ -1,5 +1,5 @@
 from datetime import datetime
-
+import json
 # """
 # Personal Expense Tracker - CLI Based (Python Project)
 
@@ -23,6 +23,22 @@ from datetime import datetime
 # """
 
 #Custom Functions
+def read_json():
+    """()-> expenses:list
+    Returns list of expenses after reading them from a json file"""
+    with open('exp_data.json','r') as fp:
+       expenses= json.load(fp)
+       return expenses
+#end  
+    
+
+
+def save_json(expenses):
+    """(expenses)->none
+    Recieves a list of expenses and saves them to a JSON file"""
+    with open('exp_data.json','w') as fp:
+       json.dump(expenses,fp,indent=3)
+#end
 
 def add_expense(expenses:list):
     """(expenses:List)->none
@@ -31,16 +47,14 @@ def add_expense(expenses:list):
     amount=input("Enter Amount:")
     category=input('Enter Category( Food, Travel, Entertainment, Work and Misc):').lower()
     date_str=input('Enter Date (YY-MM-DD):')
-    #Assumption : User enters a valid date
-    date= datetime.strptime(date_str,'%Y-%m-%d').date()
+    
     new_expense={
         'exp_amount' :int(amount),
         'exp_category':category,
-        'exp_date':date
+        'exp_date':date_str
     }
-    print(new_expense) #Test Print
     expenses.append(new_expense)
-    print(expenses) #Test Print
+    save_json(expenses)
 #end
 
 def view_exp(expenses:list):
@@ -49,9 +63,9 @@ def view_exp(expenses:list):
     
     for expense in expenses:
         print("Expense----------------")
-        print(f"""Amount: {expense['exp_amount']}""")
-        print(f"""Category: {expense['exp_category'].capitalize()}""")
-        print(f"""Dated: {expense['exp_date']}""")
+        print(f"""\tAmount: {expense['exp_amount']}""")
+        print(f"""\tCategory: {expense['exp_category'].capitalize()}""")
+        print(f"""\tDated: {expense['exp_date']}""")
 #end   
 
 def filter_exp(expenses):
@@ -94,18 +108,7 @@ menu="""Welcome----------------
 5.Exit
 choice:"""
 
-expenses = [
-    {"exp_amount": 450, "exp_category": "food", "exp_date": datetime.strptime("2025-07-01", "%Y-%m-%d").date()},
-    {"exp_amount": 1200, "exp_category": "travel", "exp_date": datetime.strptime("2025-07-03", "%Y-%m-%d").date()},
-    {"exp_amount": 300, "exp_category": "entertainment", "exp_date": datetime.strptime("2025-07-04", "%Y-%m-%d").date()},
-    {"exp_amount": 1500, "exp_category": "work", "exp_date": datetime.strptime("2025-07-05", "%Y-%m-%d").date()},
-    {"exp_amount": 250, "exp_category": "misc", "exp_date": datetime.strptime("2025-07-06", "%Y-%m-%d").date()},
-    {"exp_amount": 700, "exp_category": "food", "exp_date": datetime.strptime("2025-07-07", "%Y-%m-%d").date()},
-    {"exp_amount": 800, "exp_category": "travel", "exp_date": datetime.strptime("2025-07-08", "%Y-%m-%d").date()},
-    {"exp_amount": 400, "exp_category": "entertainment", "exp_date": datetime.strptime("2025-07-09", "%Y-%m-%d").date()},
-    {"exp_amount": 1800, "exp_category": "work", "exp_date": datetime.strptime("2025-07-10", "%Y-%m-%d").date()},
-    {"exp_amount": 150, "exp_category": "misc", "exp_date": datetime.strptime("2025-07-11", "%Y-%m-%d").date()}
-]
+expenses = read_json();
 
 
 

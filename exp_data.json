@@ -1,0 +1,57 @@
+[
+   {
+      "exp_amount": 450,
+      "exp_category": "food",
+      "exp_date": "2025-07-01"
+   },
+   {
+      "exp_amount": 1200,
+      "exp_category": "travel",
+      "exp_date": "2025-07-03"
+   },
+   {
+      "exp_amount": 300,
+      "exp_category": "entertainment",
+      "exp_date": "2025-07-04"
+   },
+   {
+      "exp_amount": 1500,
+      "exp_category": "work",
+      "exp_date": "2025-07-05"
+   },
+   {
+      "exp_amount": 250,
+      "exp_category": "misc",
+      "exp_date": "2025-07-06"
+   },
+   {
+      "exp_amount": 700,
+      "exp_category": "food",
+      "exp_date": "2025-07-07"
+   },
+   {
+      "exp_amount": 800,
+      "exp_category": "travel",
+      "exp_date": "2025-07-08"
+   },
+   {
+      "exp_amount": 400,
+      "exp_category": "entertainment",
+      "exp_date": "2025-07-09"
+   },
+   {
+      "exp_amount": 1800,
+      "exp_category": "work",
+      "exp_date": "2025-07-10"
+   },
+   {
+      "exp_amount": 150,
+      "exp_category": "misc",
+      "exp_date": "2025-07-11"
+   },
+   {
+      "exp_amount": 4500,
+      "exp_category": "food",
+      "exp_date": "2025-12-12"
+   }
+]
